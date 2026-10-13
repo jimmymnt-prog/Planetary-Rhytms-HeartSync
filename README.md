@@ -1,59 +1,50 @@
-# Planetary Rhytms : HeartSync
+# HeartSync — Planetary Rhythms · V2
 
-Plongez dans un voyage intérieur captivant avec Planetary Rhythms : HeartSync. Explorez les énergies apaisantes des planètes et découvrez l'harmonie profonde entre votre cœur et l'univers qui vous entoure. Laissez-vous guider par les rythmes célestes alors que votre respiration s' alignez-vous naturellement avec les pulsations de l'espace. Avec HeartSync, trouvez l'équilibre, la tranquillité et la sérénité en harmonisant votre cœur avec les mystères célestes
+Une refonte complète de l’expérience de respiration guidée d’origine. Le projet fonctionne sans compte ni service tiers obligatoire et se déploie comme un site statique.
 
-## voir sur le site : 
+## Lancer en local
 
-## [Liens vers HeartSync](https://planetary-rhytms-heart-sync.vercel.app/)
+Le mode application installable et le fonctionnement hors ligne nécessitent `localhost` ou HTTPS (les règles du navigateur l’exigent pour un service worker). Depuis ce dossier :
 
+```bash
+python3 -m http.server 8000
+```
 
-## Fonctionnalités :
+Puis ouvre `http://localhost:8000`. Pour un aperçu rapide, `index.html` peut aussi être ouvert directement, mais l’installation PWA/hors ligne ne sera pas activée.
 
-### 1. Choix du thème visuel :
-Les utilisateurs peuvent choisir parmi différents thèmes de planètes (Soleil, Lune, Terre, Jupiter, Mars, Vénus) pour créer une ambiance visuelle relaxante.
+## Fonctionnalités
 
-### 2. Réglage des rythmes de respiration : 
-Les utilisateurs peuvent sélectionner différents rythmes de respiration (6/4, 5/5, 4/6, 3/7) pour pratiquer la cohérence cardiaque.
+- Six univers visuels, quatre rythmes réglables (3/3, 4/6, 5/5, 6/4) et cinq durées de 1 à 15 minutes.
+- Guide animé avec phases, décompte, progression, cycles, pause, reprise et arrêt.
+- Cinq ambiances audio locales, activées seulement à l’action de la personne.
+- Préférences conservées dans le stockage local du navigateur; aucun compte, cookie publicitaire ou envoi de données.
+- PWA installable; interface et visuels essentiels disponibles hors ligne après la première visite. Les fichiers audio restent chargés à la demande et ne sont pas ajoutés au cache hors ligne.
+- Mise en page mobile/ordinateur, navigation clavier, états accessibles, dialogues, textes de sécurité, contraste soigné et réduction des animations selon les réglages système.
+- Métadonnées SEO, aperçu Open Graph/Twitter 1200×630, données structurées, icônes SVG/PNG, manifeste, fichier robots.txt et en-têtes de sécurité pour les hébergeurs compatibles.
 
-### 3. Sélection des thèmes musicaux d'ambiance : 
-Les utilisateurs peuvent choisir parmi une sélection de th
+## Mise en ligne et référencement
 
-### 4. Réglage du minuteur : 
-Les utilisateurs peuvent définir la durée de leur session de cohérence cardiaque en s'appuyant parmi des options de minuterie (1 à 5 minutes).
+Le site est statique : dépose le contenu du dossier sur Netlify, Vercel, Cloudflare Pages, GitHub Pages ou un hébergement classique, avec HTTPS activé. `_headers` sert à Netlify/Cloudflare Pages; `vercel.json` configure les en-têtes Vercel.
 
-### 5. Lecture et pause audio : 
-Les utilisateurs peuvent
+Avant publication :
 
-### 6. Compteur de temps : 
-Un compteur de temps affiche la durée restante de la session en cours.
+1. Remplace le titre, les textes et descriptions si l’identité commerciale diffère de HeartSync.
+2. Configure le domaine définitif dans `og:url` si ajouté, renseigne une URL canonique absolue dans `<head>` et crée un `sitemap.xml` avec ce domaine. Ne laisse pas d’URL d’exemple.
+3. Vérifie l’aperçu social sur le domaine réel.
+4. Fais vérifier les droits d’usage commercial des illustrations planétaires et surtout des pistes audio issues du projet d’origine. Une licence de code ne confère pas automatiquement les droits sur les médias.
+5. Complète les mentions légales/éditeur, conditions, politique de confidentialité et coordonnées requises selon l’exploitant, le pays et le modèle économique. L’interface ne collecte pas de données, mais l’hébergeur peut conserver ses journaux techniques.
+6. Vérifie sur appareils réels, avec VoiceOver/TalkBack et clavier, et exécute PageSpeed Insights/Lighthouse après déploiement. Les résultats SEO/performance ne peuvent être validés complètement avant que le domaine soit public.
 
-### 5. Animation de la planète : 
-Une animation visuelle de la planète guide les utilisateurs à travers le rythme de
+Le `canonical` est intentionnellement absent tant qu’aucun vrai domaine n’est renseigné. Le balisage JSON-LD décrit l’application comme gratuite conformément à la version de démonstration; ajuste-le si le modèle commercial change.
 
-### 6. Guide d'utilisation : 
-Les utilisateurs peuvent accéder à un guide expliquant les étapes d'utilisation de l'application.
+## Structure
 
-### 7. Interface responsive : 
-L'application est conçue pour s'adapter à différentes tailles d'écran, offrant une expérience cohérente sur les appareils mobiles et de bureau.
+- `index.html` — contenu, SEO, interface et textes d’information.
+- `styles.css` — identité visuelle responsive et thèmes clair/sombre.
+- `app.js` — configuration, animation, minuterie, audio, PWA et stockage local.
+- `service-worker.js`, `manifest.webmanifest` — installation et cache hors ligne.
+- `assets/planets/`, `assets/audio/` — médias locaux optimisés issus du ZIP fourni.
 
----- 
-## Technologies utilisées :
+## Note bien-être
 
-### HTML5 : 
-- Pour la structurer le contenu de la page et créer les éléments d'interface utilisateur.
-- Audio HTML5 : Utilisé pour jouer les thèmes musicaux d'ambiance.
-
-### CSS3 : 
-Pour la mise en forme.
-
-### JavaScript : 
-Pour ajouter des interactions dynamiques à l'application, gérer les événements utilisateur, contrôler les minutes et gérer les éléments audio.
-
-
-### Media Queries : 
-Pour rendre l'application responsive
-
-### API DOM : 
-Pour manipuler et mettre à jour le contenu de la page en réponse aux actions de l'utilisateur.
-
-Une version "Accessible est en cour délaboration ici [Lien vers le site](https://planetary-rhytms-heart-sync-accessibility.vercel.app/) & le [Lien vers le GitHub](https://github.com/jimmyomont/Planetary-Rhytms-HeartSync-Accessibility)
+HeartSync guide une respiration volontaire et ne mesure pas la fréquence cardiaque. Ce n’est pas un dispositif médical et l’application ne remplace pas un avis professionnel. Arrête la pratique en cas d’inconfort.

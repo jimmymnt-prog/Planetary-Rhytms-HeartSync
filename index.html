@@ -1,162 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;900&display=swap" rel="stylesheet">
-  <script defer src="./script.js"></script>
-  <link rel="icon" href="/svg/terre.png" />
-  <title>Planetary Rhythms : HeartSync</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111522">
+  <meta name="description" content="HeartSync vous accompagne dans une pause respiration guidée, avec des rythmes personnalisables, des ambiances sonores et un voyage parmi les planètes.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="HeartSync — Une pause, un souffle, un univers">
+  <meta property="og:description" content="Créez une parenthèse de respiration guidée, à votre rythme et dans votre univers.">
+  <meta property="og:image" content="assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HeartSync, une planète entourée d’orbites sur un fond étoilé">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="assets/social-card.png">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"HeartSync","applicationCategory":"HealthApplication","operatingSystem":"Any","inLanguage":"fr-FR","description":"Application de respiration guidée avec rythmes personnalisables et ambiances planétaires.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
+  </script>
+  <title>HeartSync — Une pause, un souffle, un univers</title>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHW87M57FJ"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-QHW87M57FJ');
-</script>
-
-<body id="body" class="bodyGuide overflowHidden">
-  <!-- 
-
-  (ﾉ ◕ ヮ ◕)ﾉ
-  
--->
-  <header id="header">
-    <nav>
-      <span id="nav">
-        <section class="navFlex">
-          <a>Theme</a>
-          <select name="" id="planet">
-            <option value="1">Veuillez choisir</option>
-            <option value="1">Soleil</option>
-            <option value="2">Lune</option>
-            <option value="3">Terre</option>
-            <option value="4">Jupiter</option>
-            <option value="5">Mars</option>
-            <option value="6">Venus</option>
-          </select>
-        </section>
-        <section class="navFlex">
-          <a>Rythme</a>
-          <select name="" id="rythme">
-            <option value="0">Veuillez choisir</option>
-            <option value="1">6/4</option>
-            <option value="2">5/5</option>
-            <option value="3">4/6</option>
-            <option value="4">3/7</option>
-          </select>
-        </section>
-        <section class="navFlex">
-          <a>Audio</a>
-          <select name="" id="sound">
-            <option value="0">Veuillez choisir</option>
-            <option value="1">Audio mute </option>
-            <option value="2">Ambient dream</option>
-            <option value="3">Lunar wind</option>
-            <option value="4">City of the future</option>
-            <option value="5">Spaceship ambience</option>
-            <option value="6">The ice fields voyager</option>
-          </select>
-        </section>
-        <section class="navFlex">
-          <a>Timer</a>
-          <select name="" id="compteur">
-            <option value="0">Veuillez choisir</option>
-            <option value="1">1 minute</option>
-            <option value="2">2 minutes</option>
-            <option value="3">3 minutes</option>
-            <option value="4">4 minutes</option>
-            <option value="5">5 minutes</option>
-          </select>
-        </section>
-        <a style="cursor: pointer;" class="guidePush" target="_blank" href="https://www.linkedin.com/in/%F0%9F%A6%9A-jimmy-omont%F0%9F%A6%A9-141471166/">
-          <div>App By Jimmy</div>
-        </a>
-      </span>
-      <span class="hidden" id="nav2">
-        <button class="btnClose"> Fermer</button>
-        <p id="timer"></p>
-        <button id="pause">Audio pause</button>
-        <button id="play">Audio lecture</button>
-        <a style="cursor: pointer; " class="guidePush" target="_blank" href="https://www.linkedin.com/in/%F0%9F%A6%9A-jimmy-omont%F0%9F%A6%A9-141471166/">
-          <div>App By Jimmy</div>
-        </a>
-      </span>
-
-      <audio class="hidden" autoplay controls="controls" id="piste">
-        <source src="" />
-      </audio>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="topbar">
+    <a class="brand" href="#accueil" aria-label="HeartSync, accueil">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span>heart<span class="brand-light">sync</span><small>PLANETARY RHYTHMS</small></span>
+    </a>
+    <nav class="top-nav" aria-label="Navigation principale">
+      <a href="#experience">L’expérience</a>
+      <a href="#bienfaits">La respiration</a>
+      <button class="text-button" id="openHelp" type="button">Comment ça marche ?</button>
+    </nav>
+    <button class="icon-button" id="themeToggle" type="button" aria-label="Basculer le thème d’affichage" title="Basculer le thème"><span aria-hidden="true">◐</span></button>
   </header>
-  </nav>
-  <main id="mainContent">
-    
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-    <div id="etoile">
-      <div class="etoile-filante"></div>
-      <div class="etoile-filante"></div>
-      <div class="etoile-filante"></div>
-    </div>
 
-    <article class="navTitle">
-      <p id="end" class="hidden">Fin de la relaxation</p>
-      <img class="svg hidden" id="svg">
-      <img class="svg floatbis svgHidden" src="/svg/sun.png" id="svgView">
-      <article id="main">
-        <h1 class="float">Planetary Rhythms : HeartSync</h1>
-        <p>Avez vous choisi vos options ?</p>
-        <a id="btn" target="_blank">Alors démarrons la relaxation</a>
-        <p class="intro">Plongez dans un voyage intérieur captivant avec Planetary Rhythms : HeartSync. Explorez les
-          énergies
-          apaisantes des planètes et découvrez l'harmonie profonde entre votre cœur et l'univers qui vous entoure.
-          Laissez-vous guider par les rythmes célestes alors que votre respiration s' alignez-vous naturellement avec
-          les pulsations de l'espace. Avec HeartSync, trouvez l'équilibre, la tranquillité et la sérénité en harmonisant
-          votre cœur avec les mystères célestes</p>
-        <p class="intro">La cohérence cardiaque est une pratique qui vise à réguler et à synchroniser les battements du
-          cœur avec la
-          respiration.</p>
-        <p class="intro">Elle repose sur l'idée que lorsque notre respiration et notre rythme cardiaque sont en
-          harmonie, cela peut
-          favoriser un état de relaxation, de calme et de bien-être.</p>
-        <a id="guidePush">
-          <div class="guideFlex">Conseils d'utilisation <img src="./svg/aide.png" alt="button aide"></div>
-        </a>
-      </article>
-    </article>
+  <main id="main">
+    <section class="hero" id="accueil" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> TON ESPACE POUR SOUFFLER</p>
+        <h1 id="heroTitle">Retrouve ton<br><em>propre rythme.</em></h1>
+        <p class="hero-lede">Quelques minutes pour ralentir, respirer et laisser le reste en suspens.</p>
+        <a class="primary-button hero-cta" href="#experience">Créer ma parenthèse <span aria-hidden="true">↘</span></a>
+        <div class="hero-note"><span class="mini-stars" aria-hidden="true">✳</span> Sans inscription · Gratuit · Tes réglages restent sur cet appareil</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="hero-planet"><img src="assets/planets/terre.webp" alt="" width="520" height="520" fetchpriority="high"></div>
+        <span class="orbit-label label-one">INSPIRER</span><span class="orbit-label label-two">EXPIRER</span>
+        <span class="hero-star star-a">✦</span><span class="hero-star star-b">·</span><span class="hero-star star-c">✧</span>
+      </div>
+    </section>
+
+    <section class="experience section-shell" id="experience" aria-labelledby="experienceTitle">
+      <div class="section-heading">
+        <div><p class="eyebrow">TA SÉANCE, TES RÈGLES</p><h2 id="experienceTitle">Choisis ton ambiance</h2></div>
+        <p class="section-aside">Ajuste les options, puis installe-toi confortablement.<br>Tu pourras tout modifier avant de commencer.</p>
+      </div>
+      <div class="studio-grid">
+        <div class="setup-panel">
+          <fieldset class="setup-group">
+            <legend><span class="step-number">01</span>Choisis un monde</legend>
+            <div class="planet-picker" role="group" aria-label="Univers visuel">
+              <button class="planet-choice selected" data-planet="terre" type="button" aria-pressed="true"><img src="assets/planets/terre.webp" alt="" loading="lazy"><span>Terre</span></button>
+              <button class="planet-choice" data-planet="moon" type="button" aria-pressed="false"><img src="assets/planets/moon.webp" alt="" loading="lazy"><span>Lune</span></button>
+              <button class="planet-choice" data-planet="sun" type="button" aria-pressed="false"><img src="assets/planets/sun.webp" alt="" loading="lazy"><span>Soleil</span></button>
+              <button class="planet-choice" data-planet="venus" type="button" aria-pressed="false"><img src="assets/planets/venus.webp" alt="" loading="lazy"><span>Vénus</span></button>
+              <button class="planet-choice" data-planet="mars" type="button" aria-pressed="false"><img src="assets/planets/mars.webp" alt="" loading="lazy"><span>Mars</span></button>
+              <button class="planet-choice" data-planet="jupiter" type="button" aria-pressed="false"><img src="assets/planets/jupiter.webp" alt="" loading="lazy"><span>Jupiter</span></button>
+            </div>
+          </fieldset>
+          <fieldset class="setup-group rhythm-group">
+            <legend><span class="step-number">02</span>Choisis ton rythme</legend>
+            <div class="rhythm-picker" role="group" aria-label="Rythme de respiration">
+              <button class="rhythm-choice" data-in="3" data-out="3" type="button" aria-pressed="false"><strong>3 <i>/</i> 3</strong><span>Équilibré</span></button>
+              <button class="rhythm-choice selected" data-in="4" data-out="6" type="button" aria-pressed="true"><strong>4 <i>/</i> 6</strong><span>Apaisant</span></button>
+              <button class="rhythm-choice" data-in="5" data-out="5" type="button" aria-pressed="false"><strong>5 <i>/</i> 5</strong><span>Régulier</span></button>
+              <button class="rhythm-choice" data-in="6" data-out="4" type="button" aria-pressed="false"><strong>6 <i>/</i> 4</strong><span>Dynamique</span></button>
+            </div>
+            <p class="microcopy" id="rhythmHint">4 secondes d’inspiration · 6 secondes d’expiration</p>
+          </fieldset>
+          <fieldset class="setup-group duration-group">
+            <legend><span class="step-number">03</span>Combien de temps ?</legend>
+            <div class="duration-picker" role="group" aria-label="Durée de la séance">
+              <button class="duration-choice" data-minutes="1" type="button" aria-pressed="false">1 <small>min</small></button>
+              <button class="duration-choice selected" data-minutes="3" type="button" aria-pressed="true">3 <small>min</small></button>
+              <button class="duration-choice" data-minutes="5" type="button" aria-pressed="false">5 <small>min</small></button>
+              <button class="duration-choice" data-minutes="10" type="button" aria-pressed="false">10 <small>min</small></button>
+              <button class="duration-choice" data-minutes="15" type="button" aria-pressed="false">15 <small>min</small></button>
+            </div>
+          </fieldset>
+          <div class="sound-row">
+            <div class="sound-copy"><span class="sound-icon" aria-hidden="true">♫</span><div><label for="soundSelect">Ambiance sonore</label><small>Facultative, volume doux</small></div></div>
+            <select id="soundSelect" aria-label="Choisir une ambiance sonore">
+              <option value="none">Silence</option><option value="ambient-dream">Rêverie</option><option value="lunar-wind">Vent lunaire</option><option value="future-city">Ville du futur</option><option value="spacecraft">Voyage spatial</option><option value="neptune">Glaces de Neptune</option>
+            </select>
+          </div>
+          <button class="primary-button start-button" id="startSession" type="button">Commencer ma séance <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">⌑</span> Pas de compte. Pas de données personnelles envoyées.</p>
+        </div>
+
+        <aside class="session-card" id="sessionCard" aria-label="Aperçu de la séance">
+          <div class="session-topline"><span class="live-dot"></span><span id="sessionStatus">PRÊT QUAND TU L’ES</span><button class="sound-toggle" id="soundToggle" type="button" aria-label="Activer ou couper le son">♫</button></div>
+        <div class="breath-stage" id="breathStage" data-phase="ready" tabindex="-1" aria-label="Guide de respiration">
+            <div class="stage-orbit stage-orbit-a"></div><div class="stage-orbit stage-orbit-b"></div>
+            <div class="breath-glow"></div>
+            <div class="breath-planet" id="breathPlanet"><img id="activePlanet" src="assets/planets/terre.webp" alt="Planète Terre" width="520" height="520"></div>
+            <div class="breath-ring" aria-hidden="true"></div>
+            <div class="breath-instruction" aria-live="polite" aria-atomic="true"><span id="phaseLabel">À ton rythme</span><strong id="phaseCount">—</strong></div>
+            <span class="stage-star stage-star-a">✦</span><span class="stage-star stage-star-b">·</span><span class="stage-star stage-star-c">✧</span>
+          </div>
+          <div class="session-metrics"><div><span>RESTE</span><strong id="timeRemaining">03:00</strong></div><div><span>RYTHME</span><strong id="activeRhythm">4 / 6 <small>sec</small></strong></div><div><span>CYCLES</span><strong id="cycleCount">0</strong></div></div>
+          <div class="session-progress" role="progressbar" aria-label="Progression de la séance" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div>
+          <div class="session-controls"><button class="control-button" id="pauseSession" type="button" disabled><span aria-hidden="true">Ⅱ</span> Pause</button><button class="control-button end-control" id="endSession" type="button" disabled><span aria-hidden="true">■</span> Terminer</button></div>
+          <p class="session-caption" id="sessionCaption">Laisse le mouvement te guider. Pas besoin de forcer.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="breath-info" id="bienfaits" aria-labelledby="benefitsTitle">
+      <div class="breath-info-art" aria-hidden="true"><div class="info-orbit"></div><div class="info-sun">☼</div><div class="info-dot d1"></div><div class="info-dot d2"></div><div class="info-dot d3"></div></div>
+      <div class="breath-info-copy"><p class="eyebrow">UNE PRATIQUE SIMPLE, À TON RYTHME</p><h2 id="benefitsTitle">Revenir à l’instant.<br><em>Souffle après souffle.</em></h2><p>HeartSync transforme le rythme de ta respiration en un mouvement doux à suivre. La planète s’élève avec l’inspiration et redescend avec l’expiration. Tu peux garder les yeux ouverts, baisser le son ou simplement faire une pause.</p><div class="info-points"><div><span>01</span><strong>Installe-toi</strong><p>Assis·e ou allongé·e, dans une position confortable.</p></div><div><span>02</span><strong>Suis le mouvement</strong><p>Inspire puis expire sans chercher à remplir tes poumons au maximum.</p></div><div><span>03</span><strong>Adapte à tes sensations</strong><p>Un inconfort ? Reviens à une respiration naturelle et arrête la séance.</p></div></div></div>
+    </section>
+    <section class="closing-cta"><span class="closing-spark" aria-hidden="true">✳</span><p>Tu n’as rien à réussir.</p><h2>Juste un souffle<br><em>après l’autre.</em></h2><a href="#experience" class="primary-button">Trouver mon rythme <span aria-hidden="true">↑</span></a></section>
   </main>
-  <div id="guide" class=" hidden">
-    <p class="guide-subtitle">Étape 1 : Choix du thème visuel</p>
-    <p>Sélectionnez le thème de planète pour créer une ambiance relaxante et immersive.</p>
-    <p class="guide-subtitle">Étape 2 : Réglage des rythmes de respiration</p>
-    <p>La cohérence cardiaque est basée sur des rythmes de respiration spécifiques.Nous utilisons les rythmes suivants :
-      6/4, 5/5, 4/6 et 3/7. Ces chiffres représentent le temps en secondes pour l'inspiration et l'expiration. Par
-      exemple, 6/4 signifie une inspiration de 6 secondes suivie d'une expiration de 4 secondes.</p>
-    <p class="guide-subtitle">Étape 3 : Sélection des thèmes musicaux d'ambiance</p>
-    <p>La musique peut aider à créer une atmosphère relaxante lors de la pratique de la cohérence cardiaque. Choisissez
-      un thème musical d'ambiance qui correspondent à vos préférences.</p>
-    <p class="guide-subtitle">Étape 4 : Réglage du minuteur </p>
-    <p>Un minuteur est essentiel pour vous guider pendant votre séance de cohérence cardiaque. Dans cette application,
-      vous aurez pouvez régler le minuteur pour des durées de 1, 2, 3, 4 ou 5 minutes.</p>
-    <p class="guide-subtitle">Étape 5 : Utilisation </p>
-    <p>Observez attentivement l'animation de la planète. Lorsque la planète grossit, cela indique le temps
-      d'inspiration, et lorsque la planète se rétrécit, cela indique le temps de l'expiration. Essayez de maintenir un
-      rythme régulier en suivant les mouvements de la planète.</p>
-    <p>Relaxez-vous bien !</p>
-    <button class="btnGuide"> Fermer</button>
-  </div>
-  <footer>
-    <p class="hidden" id="counter"></p>
-  </footer>
 
+  <footer class="footer"><a class="brand footer-brand" href="#accueil"><span class="brand-mark" aria-hidden="true"><span></span></span><span>heart<span class="brand-light">sync</span><small>PLANETARY RHYTHMS</small></span></a><p>Une création pour s’offrir une pause, quelque part dans l’univers.</p><div class="footer-links"><a href="#bienfaits">À propos</a><button type="button" id="openSafety">Précautions</button><button type="button" id="openHelpFooter">Comment ça marche</button></div><small class="copyright">© <span id="year"></span> HeartSync · La respiration reste personnelle : écoute tes sensations.</small></footer>
+
+  <dialog class="modal" id="helpDialog" aria-labelledby="helpTitle"><div class="modal-head"><div><p class="eyebrow">PRENDRE SES REPÈRES</p><h2 id="helpTitle">Comment utiliser HeartSync</h2></div><button class="icon-button modal-close" type="button" aria-label="Fermer">×</button></div><ol class="help-list"><li><strong>Choisis ton univers</strong><span>La planète est un repère visuel. Elle n’influence pas ta respiration.</span></li><li><strong>Choisis un rythme confortable</strong><span>Le premier chiffre indique l’inspiration, le second l’expiration, en secondes.</span></li><li><strong>Lance quand tu es prêt·e</strong><span>Le minuteur démarre avec le guide visuel. Mets en pause ou termine à tout moment.</span></li><li><strong>Le son est facultatif</strong><span>Il commence uniquement après ton action, et tu peux le couper à tout moment.</span></li></ol><p class="modal-footnote">Aucun compte n’est nécessaire. Tes préférences sont conservées sur cet appareil uniquement.</p></dialog>
+  <dialog class="modal safety-modal" id="safetyDialog" aria-labelledby="safetyTitle"><div class="modal-head"><div><p class="eyebrow">À LIRE AVANT DE COMMENCER</p><h2 id="safetyTitle">À l’écoute de ton corps</h2></div><button class="icon-button modal-close" type="button" aria-label="Fermer">×</button></div><p>HeartSync est un outil de bien-être et de respiration guidée. Il ne mesure ni le cœur ni la santé, ne fournit pas de diagnostic et ne remplace pas l’avis d’un professionnel de santé.</p><p>Respire sans forcer. Si tu ressens un vertige, un essoufflement, une douleur ou un malaise, arrête l’exercice et reprends une respiration naturelle. Tu peux quitter la séance à tout moment.</p><p class="modal-footnote">Les rythmes proposés sont des options de guidage, pas une recommandation médicale.</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
 </body>
-
 </html>
